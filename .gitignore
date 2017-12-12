@@ -1,0 +1,16 @@
+node_modules
+
+src/public/vendor
+src/public/dist
+
+/.idea/
+# Elastic Beanstalk Files
+.elasticbeanstalk/
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+
+.npm
+.config
+.DS_Store
+
+logs

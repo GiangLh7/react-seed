@@ -1,0 +1,12 @@
+{
+  "hapi": {
+    "conf": {
+      "debug": {
+        "request": [
+          "error",
+          "uncaught"
+        ]
+      }
+    }
+  }
+}
