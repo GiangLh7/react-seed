@@ -29,7 +29,7 @@ class Slider extends Component {
       nextItemIndex = currentItemIndex > 0 ? currentItemIndex - 1 : items.length - 1;
     }
     
-    var self = this;
+    const self = this;
     setTimeout(function () {
       self.setState({ isAnimating: false, currentItemIndex: nextItemIndex });
     }, 1000);
@@ -55,8 +55,12 @@ class Slider extends Component {
           <img className="slider_img" src={this.getCurrentImg()}/>
         </div>
         <nav className="slider_nav-wrap">
-          <button className="slider_nav slider_nav--prev" onClick={ evt => { this.navigate('left') }}><i className="fa fa-angle-left"></i><span className="text-hidden">Previous</span></button>
-          <button className="slider_nav slider_nav--next" onClick={ evt => {this.navigate('right') }}><i className="fa fa-angle-right"></i><span className="text-hidden">Next</span></button>
+          <button className="slider_nav slider_nav--prev" onClick={ evt => { this.navigate('left') }}>
+            <i className="icon ion-ios-arrow-left"></i><span className="text-hidden">Previous</span>
+          </button>
+          <button className="slider_nav slider_nav--next" onClick={ evt => {this.navigate('right') }}>
+            <i className="icon ion-ios-arrow-right"></i><span className="text-hidden">Next</span>
+          </button>
         </nav>
       </div>
     );
