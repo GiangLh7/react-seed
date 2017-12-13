@@ -17,7 +17,7 @@ class AppBootstrapper {
     const store = this.store;
     ReactDOM.render(
       <Provider store={store}>
-        <div>Hello React!!!</div>
+        <RootContainer />
       </Provider>,
       document.getElementById('root'));
   }

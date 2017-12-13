@@ -24,7 +24,7 @@ server.register(require('vision'), (err) => {
     engines: { pug },
     path: __dirname,
     compileOptions: { pretty: true },
-    isCached: conf.get('NODE_ENV') !== 'development',
+    isCached: false,
   });
 });
 
