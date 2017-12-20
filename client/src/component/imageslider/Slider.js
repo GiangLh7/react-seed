@@ -56,10 +56,10 @@ class Slider extends Component {
         </div>
         <nav className="slider_nav-wrap">
           <button className="slider_nav slider_nav--prev" onClick={ evt => { this.navigate('left') }}>
-            <i className="icon ion-ios-arrow-left"></i><span className="text-hidden">Previous</span>
+            <i className="icon ion-ios-arrow-left" /><span className="text-hidden">Previous</span>
           </button>
           <button className="slider_nav slider_nav--next" onClick={ evt => {this.navigate('right') }}>
-            <i className="icon ion-ios-arrow-right"></i><span className="text-hidden">Next</span>
+            <i className="icon ion-ios-arrow-right"/><span className="text-hidden">Next</span>
           </button>
         </nav>
       </div>
@@ -72,6 +72,6 @@ Slider.defaultProps = {
   onNavigate: function () {
     return false;
   }
-}
+};
 
 export default Slider;

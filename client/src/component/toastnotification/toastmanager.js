@@ -6,6 +6,40 @@ class ToastManager extends Component {
   constructor(props) {
     super(props);
     this.debouncer = {};
+    this.onMouseEnter = this.onMouseEnter.bind(this);
+    this.onMouseLeave = this.onMouseLeave.bind(this);
+    this.dismiss = this.dismiss.bind(this);
+    this.onNewToast = this.onNewToast.bind(this);
+  }
+  
+  onMouseEnter(e) {
+    const toastId = e.currentTarget.id;
+    if (this.config.pauseOnHover && this.debouncer[toastId]) {
+      this.debouncer[toastId].cancel();
+      delete this.debouncer[toastId];
+      const now = Date.now();
+      this.remaining = this.end - now;
+    }
+    this.hovering = toastId;
+  }
+  
+  onMouseLeave(e) {
+    const toastId = e.currentTarget.id;
+    if (toastId === this.hovering) {
+      this.hovering = null;
+    }
+    if (this.config.pauseOnHover) {
+      this.start = Date.now();
+      this.end = this.start + this.remaining;
+      this.debouncer[toastId] = linear({
+        [this.remaining.toString()]: () => {
+          this.dismiss(toastId);
+        }
+      });
+      this.debouncer[toastId]();
+      return;
+    }
+    this.dismiss(toastId);
   }
   
   componentDidMount() {
@@ -71,11 +105,26 @@ class ToastManager extends Component {
   }
   
   hideToast(toastId, force) {
-  
+    if (!force && this.hovering === toastId) {
+      // pending the hiding action
+      return this.toasts[toastId].awaitRemoval = true;
+    }
+    this.setState((prevState) => {
+      const nextState = Object.assign({}, prevState);
+      const index = nextState.toasts.findIndex((toast) => toast.id === toastId);
+      if (index === -1) {
+        return prevState;
+      }
+      nextState.toasts[index].shown = false;
+      return nextState;
+    });
   }
   
   removeToast(toastId, force) {
-  
+    if (!force && this.hovering === toastId) {
+      return this.toasts[toastId].awaitRemoval = true;
+    }
+    this.setState((prevState) => ({toasts: prevState.filter((toast) => toast.id !== toastId)}));
   }
 }
 
