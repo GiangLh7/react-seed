@@ -13,13 +13,21 @@ class Menu extends Component {
   }
   
   static contextTypes = {
-    abmManager: PropTypes.object.isRequired
+    ambManager: PropTypes.object.isRequired
   }
   
   componentWillMount() {
     this.context.ambManager.menu = this;
   }
+  
+  componentDidUpdate() {
+    const ambManager = this.context.ambManager;
     
+    if (!ambManager.isOpen) {
+       ambManager.clearItems();
+    }
+  }
+  
   componentWillUnmount() {
     this.context.ambManager.destroy();
   }
@@ -28,7 +36,7 @@ class Menu extends Component {
     const props = this.props;
     const ambManager = this.context.ambManager;
     const menuProps = {
-      onKeyDown: null,
+      onKeyDown: ambManager.handleMenuKey,
       role: 'menu',
       obBlur: null,
       tabIndex: -1

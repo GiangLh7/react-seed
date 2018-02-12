@@ -14,10 +14,21 @@ class MenuItem extends Component {
     super(props);
   }
   
+  componentDidMount() {
+    this.context.ambManager.addItem({
+      node: this.node,
+      text: this.props.text
+    });
+  }
+  
+  static contextTypes = {
+    ambManager: PropTypes.object.isRequired
+  };
+  
   render() {
     const menuItemProps = {
-      onClick: this.selectItem,
-      onKeyDown: this.handleKeyDown,
+      onClick: this.selectItem.bind(this),
+      onKeyDown: this.handleKeyDown.bind(this),
       role: 'menuitem',
       tabIndex: '-1',
       ref: this.registerNode
@@ -34,8 +45,8 @@ class MenuItem extends Component {
   
   selectItem = event => {
     const value = typeof this.props.value !== 'undefined' ? this.props.value : this.props.children;
-    alert(value);
-    //this.context.ambManager.handleSelection(value, event);
+    
+    this.context.ambManager.handleSelection(value, event);
   }
   
   handleKeyDown = event => {
