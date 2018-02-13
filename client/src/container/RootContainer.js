@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Slider from '../component/imageslider/Slider'
-import VerticalNav from '../component/nav/VerticalNav';
+import Navigation from './Navigation';
 import MenuItem from '../component/menubutton/MenuItem';
 import Wrapper from '../component/menubutton/Wrapper';
 import Menu from '../component/menubutton/Menu';
@@ -42,10 +42,9 @@ export default class RootContainer extends Component {
     });
     return (
       <div>
-        <p>Hello</p>
+        <Navigation/>
+        
         <Slider />
-        <VerticalNav/>
-  
         <div>
           <Wrapper className="AriaMenuButton" onSelection={this.handleSelection.bind(this)}>
             <Button className="AriaMenuButton-trigger">Select a word</Button>

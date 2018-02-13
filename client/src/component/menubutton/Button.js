@@ -6,6 +6,7 @@ class AriaMenuButton extends Component {
   constructor(props) {
     super(props);
   }
+  
   static contextTypes = {
     ambManager: PropTypes.object.isRequired
   };
