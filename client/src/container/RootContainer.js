@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import { Route, Switch } from 'react-router';
 import Slider from '../component/imageslider/Slider'
 import Navigation from './Navigation';
 import MenuItem from '../component/menubutton/MenuItem';
 import Wrapper from '../component/menubutton/Wrapper';
 import Menu from '../component/menubutton/Menu';
 import Button from '../component/menubutton/Button';
+import {Dashboard, LoginOrRegister, About} from '../pages';
 
 const words = [
   'pectinate',
@@ -56,6 +58,12 @@ export default class RootContainer extends Component {
           Your last selection was: <strong>{selected}</strong>
         </span>
         </div>
+  
+        <Switch>
+          <Route path='/login' component={LoginOrRegister} />
+          <Route path='/dashboard' component={Dashboard} />
+          <Route path='/about' component={About}/>
+        </Switch>
       </div>
     );
   }
