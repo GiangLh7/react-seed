@@ -1,7 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router';
 import {Dashboard, LoginOrRegister, About} from '../pages';
-import RootContainer from '../container/RootContainer';
 
 export default () => {
   return (
