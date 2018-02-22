@@ -16,3 +16,9 @@ src/public/dist
 logs
 
 server/public/app\.js
+
+server/public/notification\.js
+
+server/public/index\.html
+
+server/public/notification\.html
