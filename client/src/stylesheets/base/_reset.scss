@@ -1,0 +1,17 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+  position: relative;
+}
+
+body {
+  font-family: $roboto;
+  font-size: $regular;
+}
+
+p {
+  font-weight: $font-weight-light;
+}
+
+button {
+  font-weight: $font-weight-bold;
+}

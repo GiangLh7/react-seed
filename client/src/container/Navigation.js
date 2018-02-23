@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 const classname = require('classname');
-import './nav.scss';
+//import './nav.scss';
 
 const mapStateToProps = (state) => {
   return {
