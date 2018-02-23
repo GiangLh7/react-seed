@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './slider.scss';
+//import './slider.scss';
 const classname = require('classname');
 
 class Slider extends Component {

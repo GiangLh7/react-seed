@@ -7,6 +7,7 @@ import Wrapper from '../component/menubutton/Wrapper';
 import Menu from '../component/menubutton/Menu';
 import Button from '../component/menubutton/Button';
 import {Dashboard, LoginOrRegister, About} from '../pages';
+import '../stylesheets/main.scss';
 
 const words = [
   'pectinate',
@@ -45,9 +46,10 @@ export default class RootContainer extends Component {
     return (
       <div>
         <Navigation/>
-        
-        <Slider />
-        <div>
+        <div className="site-content">
+          
+          <Slider />
+          
           <Wrapper className="AriaMenuButton" onSelection={this.handleSelection.bind(this)}>
             <Button className="AriaMenuButton-trigger">Select a word</Button>
             <Menu>

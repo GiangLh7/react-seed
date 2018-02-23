@@ -1,0 +1,22 @@
+nav.navigation {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 9999;
+  background: rgba(0,0,0,0.8);
+  width: 100%;
+  height: 82px;
+  max-height: 82px;
+  text-align: justify;
+  padding: 10px;
+
+  .item {
+    padding: 0 5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $white;
+    display: inline-block;
+    font-weight: $font-weight-regular;
+  }
+}

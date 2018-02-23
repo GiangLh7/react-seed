@@ -38,7 +38,7 @@ class Menu extends Component {
     const menuProps = {
       onKeyDown: ambManager.handleMenuKey,
       role: 'menu',
-      obBlur: null,
+      onBlur: ambManager.handleBlur,
       tabIndex: -1
     };
     
